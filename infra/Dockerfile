@@ -2,8 +2,7 @@ FROM alpine
 
 # basic flask environment
 RUN apk add --no-cache bash uwsgi uwsgi-python3 \
-  && pip3 install --upgrade pip \
-  && pip3 install flask
+  && pip3 install --upgrade pip
 
 # application folder
 ENV APP_DIR /app
