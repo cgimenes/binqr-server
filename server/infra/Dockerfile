@@ -16,7 +16,7 @@ WORKDIR ${APP_DIR}
 
 # expose web server port
 # only http, for ssl use reverse proxy
-EXPOSE 80
+EXPOSE 5000
 
 # copy config files into filesystem
 COPY app.ini /app.ini
