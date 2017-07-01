@@ -3,4 +3,9 @@
 {% block content %}
 <h1>Xablauzão!</h1>
 <h2>Deu bom!</h2>
+
+{% for image in images %}
+<img src="data:;base64,{{ image }}"/>
+{% endfor %}
+
 {% endblock %}
