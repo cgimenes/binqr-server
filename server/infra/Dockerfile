@@ -1,8 +1,10 @@
-FROM alpine
+FROM python:slim
+
+RUN apt-get update \
+  && apt-get install build-essential -y
 
 # basic flask environment
-RUN apk add --no-cache bash uwsgi uwsgi-python3 \
-  && pip3 install --upgrade pip
+RUN pip3 install --upgrade pip
 
 # application folder
 ENV APP_DIR /app

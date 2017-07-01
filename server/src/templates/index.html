@@ -1,62 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Xablauzão!</h1>
 <h2>Essa é uma página de teste para os psicólogos de inteligência artificial, porque os computadores estavam muito depressivos</h2>
-<span>xablauzinho</span>
 
 
+<p>Use esse campo maroto logo abaixo pra upar seu arquivo</p>
+<p>Não esquece de clicar no botão Upload ali também, senão vai acontecer VÁRIOS NADA</p>
+<p style="color: red;">Mas atenção! Se passar de 10kb o toninho da padaria vai fazer você comer lanches até ficar satisfeito</p>
 <form id="file-form" action="handler.php" method="POST">
     <input type="file" id="file-select" name="photos[]" multiple/>
     <button type="submit" id="upload-button">Upload</button>
 </form>
 
-<script type="text/javascript">
+<p style="color: purple;">A verdade é que se você for um sapeca e enviar um arquivo maior que 10kb, nada vai acontecer... Talvez o programador ainda não fez uma trava pra isso? :/</p>
 
-    window.onload = function(e){
-        var form = document.getElementById('file-form');
-        var fileSelect = document.getElementById('file-select');
-        var uploadButton = document.getElementById('upload-button');
-
-        form.onsubmit = function(event) {
-            event.preventDefault();
-
-            // Update button text.
-            uploadButton.innerHTML = 'Uploading...';
-
-            // Get the selected files from the input.
-            var files = fileSelect.files;
-
-            // Create a new FormData object.
-            var formData = new FormData();
-
-            // Loop through each of the selected files.
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                // Add the file to the request.
-                formData.append('file', file, file.name);
-            }
-
-            // Set up the request.
-            var xhr = new XMLHttpRequest();
-            // Open the connection.
-            xhr.open('POST', 'process', true);
-            // Set up a handler for when the request finishes.
-            xhr.onload = function () {
-                if (this.status === 204) {
-                    window.location.replace('success');
-                } else {
-                    alert(this.responseText);
-                }
-                uploadButton.innerHTML = 'Upload';
-            };
-            // Send the Data.
-            xhr.send(formData);
-        }
-    }
-
-</script>
+<script type="text/javascript" src="static/js/main.js"></script>
 
 {% endblock %}
 

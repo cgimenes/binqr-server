@@ -1,4 +1,5 @@
 import qrcode
+import sys
 from flask import Flask, render_template, session, redirect, url_for, request, jsonify
 from uuid import uuid4
 from tempfile import mkdtemp
@@ -20,6 +21,9 @@ def index():
 
 @app.route("/success", methods=['GET'])
 def success():
+    if 'uid' not in session:
+        return redirect(url_for('index'))
+
     encoded_images = []
     temp_dir = session['dir']
 
@@ -28,6 +32,7 @@ def success():
             encoded_string = b64encode(image_file.read()).decode()
             encoded_images.append(encoded_string)
 
+    session.clear()
     return render_template('success.html', images=encoded_images)
 
 
