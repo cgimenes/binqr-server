@@ -13,7 +13,7 @@ def convert(file):
 
 
 def _make_qr(byte_list):
-    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=8)
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=2)
 
     qr.add_data(byte_list)
     qr.make(fit=True)
@@ -31,4 +31,4 @@ def _split_file(file):
 
 
 def _calc_parts_quantity_and_size(file):
-    return {'quantity': 3, 'part_size': len(file)}
+    return {'quantity': 5, 'part_size': len(file)}
