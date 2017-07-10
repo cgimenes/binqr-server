@@ -4,7 +4,7 @@ from flask import Flask, render_template, session, redirect, url_for, request, j
 
 app = Flask(__name__)
 app.secret_key = 'anachnu tov'
-
+app.config['MAX_CONTENT_LENGTH'] = 10 * 1024
 
 @app.route("/", methods=['GET'])
 def index():

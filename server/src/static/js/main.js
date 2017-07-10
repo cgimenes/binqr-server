@@ -6,9 +6,6 @@ window.onload = function(e){
     form.onsubmit = function(event) {
         event.preventDefault();
 
-        // Update button text.
-        uploadButton.innerHTML = 'Uploading...';
-
         // Get the selected files from the input.
         var files = fileSelect.files;
 
@@ -18,6 +15,11 @@ window.onload = function(e){
         // Loop through each of the selected files.
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
+
+            if (file.size >= 10 * 1024) {
+                alert('File too large');
+                return false;
+            }
 
             // Add the file to the request.
             formData.append('file', file, file.name);
@@ -36,6 +38,9 @@ window.onload = function(e){
             }
             uploadButton.innerHTML = 'Upload';
         };
+
+        // Update button text.
+        uploadButton.innerHTML = 'Uploading...';
         // Send the Data.
         xhr.send(formData);
     }
