@@ -1,19 +1,21 @@
 FROM python:slim
 
 RUN apt-get update \
-  && apt-get install build-essential -y
+  && apt-get install build-essential libpcre3 libpcre3-dev -y
 
 # basic flask environment
-RUN pip3 install --upgrade pip
+RUN pip3 install --upgrade pip qrcode flask pillow uwsgi
 
 # application folder
 ENV APP_DIR /app
 
+RUN addgroup uwsgi \
+  && useradd uwsgi -g uwsgi
+
 # app dir
 RUN mkdir ${APP_DIR} \
-  && chmod 777 /run/ -R \
-  && chmod 777 /root/ -R
-VOLUME [${APP_DIR}]
+  && chown uwsgi:uwsgi ${APP_DIR} -R
+
 WORKDIR ${APP_DIR}
 
 # expose web server port
