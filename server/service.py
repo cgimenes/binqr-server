@@ -1,17 +1,13 @@
 from base64 import b64encode
 import binqr
 from tempfile import mkdtemp
-import time
 from uuid import uuid4
 from os import path, listdir
 from shutil import rmtree
 
 
-def process(file):
-    # Sleep para testar o famigerado ajax.gif (também conhecido como migué)
-    time.sleep(1)
-
-    images = binqr.convert(file)
+def process(filename, file):
+    images = binqr.convert(filename, file)
 
     temp_dir = mkdtemp(prefix='binqr')
 
