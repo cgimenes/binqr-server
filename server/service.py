@@ -8,9 +8,6 @@ from shutil import rmtree
 
 
 def process(file):
-    # Sleep para testar o famigerado ajax.gif (também conhecido como migué)
-    time.sleep(1)
-
     images = binqr.convert(file)
 
     temp_dir = mkdtemp(prefix='binqr')
