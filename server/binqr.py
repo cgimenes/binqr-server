@@ -8,8 +8,7 @@ def convert(filename, file):
 
 class BinQR:
     """
-    Structure for each QR Code
-    1 byte - compressed
+    QR Code metadata (290 bytes)
     1 byte - number
     1 byte - quantity
     1 byte - filename length
@@ -32,14 +31,21 @@ class BinQR:
     def split_file(self, filename, file):
         chunk_info = self.calc_chunk_info(file)
         chunks = self.chunks(file, chunk_info['size'])
+        chunks_quantity = chr(chunk_info['quantity']).encode('latin_1')
         filename_length = len(filename)
-        filename_bytes = filename.encode('latin_1')
-        checksum = hashlib.md5(file) # hashlib.md5(file).hexdigest()
+        hex_filename_length = chr(filename_length).encode('latin_1')
+        filename_padding = (chr(0) * (self.MAX_FILE_NAME_LENGTH - filename_length)).encode('latin_1')
+        filename_bytes = filename.encode('latin_1') + filename_padding
+        checksum = hashlib.md5(file).hexdigest().encode('latin_1')
 
         i = 1
         parts = []
         for chunk in chunks:
-            parts.append(chunk)
+            hex_number = chr(i).encode('latin_1')
+            chunk_with_metadata = hex_number + chunks_quantity + hex_filename_length + filename_bytes + checksum + chunk
+
+            parts.append(chunk_with_metadata)
+            i += 1
 
         return parts
 
