@@ -1,9 +1,10 @@
-from base64 import b64encode
 import binqr
+import imageio
 from tempfile import mkdtemp
 from uuid import uuid4
 from os import path, listdir
 from shutil import rmtree
+from base64 import b64encode
 
 
 def process(filename, file):
@@ -13,6 +14,12 @@ def process(filename, file):
 
     for image in images:
         image.save(path.join(temp_dir, str(uuid4())))
+
+    # Teste de GIF
+    images = []
+    for file in listdir(temp_dir):
+        images.append(imageio.imread(path.join(temp_dir, file)))
+    imageio.mimwrite(path.join(temp_dir, 'gif.gif'), images, fps=1)
 
     return temp_dir
 

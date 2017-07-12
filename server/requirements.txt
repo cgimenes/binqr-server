@@ -2,3 +2,4 @@ qrcode
 flask
 pillow
 uwsgi
+imageio
