@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:id="@+id/progress"
-            android:layout_toLeftOf="@+id/centerHorizont" android:weightSum="1" android:orientation="vertical">
+            android:weightSum="1" android:orientation="vertical">
 
         <TextView
                 android:text="@string/first_scan"

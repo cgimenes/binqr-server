@@ -4,11 +4,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.*;
@@ -16,8 +14,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ResultPoint;
 import com.journeyapps.barcodescanner.*;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
@@ -56,7 +52,7 @@ public class ScanActivity extends AppCompatActivity {
         }
     };
 
-    protected void save(byte[]... bytes) {
+    private void save(byte[]... bytes) {
         Intent intent = new Intent(this, SaveActivity.class);
         intent.putExtra("file", bytes);
         startActivity(intent);
@@ -84,7 +80,7 @@ public class ScanActivity extends AppCompatActivity {
             checkBox.setText(String.format(Locale.getDefault(), "%d", i));
             checkBox.setClickable(false);
             progress.addView(checkBox);
-        };
+        }
 
         TextView first_scan_text = (TextView) findViewById(R.id.first_scan_text);
         first_scan_text.setVisibility(View.GONE);

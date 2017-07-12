@@ -1,6 +1,5 @@
 package pi.binqr.binqr;
 
-import android.app.Activity;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
