@@ -6,6 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'anachnu tov'
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024
 
+
 @app.route("/", methods=['GET'])
 def index():
     return render_template('index.html')
@@ -39,7 +40,7 @@ def process():
         return jsonify(error='No selected file'), 400
 
     bytes_read = file.read()
-    session['dir'] = service.process(bytes_read)
+    session['dir'] = service.process(file.filename, bytes_read)
 
     return '', 204
 
