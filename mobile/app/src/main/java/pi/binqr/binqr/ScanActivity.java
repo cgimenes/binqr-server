@@ -1,6 +1,7 @@
 package pi.binqr.binqr;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -27,14 +28,14 @@ import java.util.*;
  */
 public class ScanActivity extends AppCompatActivity {
     private DecoratedBarcodeView barcodeView;
-    private Set<String> scannedParts;
+    private Map<Integer, QRCode> scannedParts;
     private List<CheckBox> checkBoxes;
+    private Context context = this;
 
     private BarcodeCallback callback = new BarcodeCallback() {
         @Override
         public void barcodeResult(BarcodeResult result) {
-            if(result.getText() == null || scannedParts.contains(result.getText())) {
-                // Prevent duplicate scans
+            if(result.getText() == null) {
                 return;
             }
 
@@ -45,12 +46,30 @@ public class ScanActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            scannedParts.add(result.getText());
+            QRCode qrCode = QRCode.fromBytes(rawBytes);
 
-            checkBoxes.get(0).setChecked(true);
+            if (scannedParts.containsKey(qrCode.getMetadata().getNumber())) {
+                return;
+            }
 
-            rawBytes = Arrays.copyOfRange(rawBytes, 290, rawBytes.length);
-            saveFile(rawBytes);
+            if (checkBoxes.size() == 0) {
+                LinearLayout progress = (LinearLayout) findViewById(R.id.progress);
+                for (int i = 0; i < qrCode.getMetadata().getQuantity(); i++) {
+                    CheckBox checkBox = new CheckBox(context);
+                    checkBox.setText(String.format(Locale.getDefault(), "%d", i + 1));
+                    checkBox.setClickable(false);
+                    progress.addView(checkBox);
+                    checkBoxes.add(checkBox);
+                }
+                TextView first_scan_text = (TextView) findViewById(R.id.first_scan_text);
+                first_scan_text.setVisibility(View.GONE);
+            }
+
+            checkBoxes.get(qrCode.getMetadata().getNumber() - 1).setChecked(true);
+
+            scannedParts.put(qrCode.getMetadata().getNumber(), qrCode);
+//            if ()
+//            saveFile(rawBytes);
         }
 
 
@@ -90,21 +109,8 @@ public class ScanActivity extends AppCompatActivity {
         barcodeView.getBarcodeView().setDecoderFactory(decoderFactory);
         barcodeView.decodeContinuous(callback);
 
-        scannedParts = new HashSet<>();
+        scannedParts = new HashMap<>();
         checkBoxes = new ArrayList<>();
-
-        LinearLayout progress = (LinearLayout) findViewById(R.id.progress);
-
-        for (int i = 1; i < 6; i++) {
-            CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(String.format(Locale.getDefault(), "%d", i));
-            checkBox.setClickable(false);
-            progress.addView(checkBox);
-            checkBoxes.add(checkBox);
-        }
-
-        TextView first_scan_text = (TextView) findViewById(R.id.first_scan_text);
-        first_scan_text.setVisibility(View.GONE);
     }
 
     private void checkAndAskForPermissions() {
