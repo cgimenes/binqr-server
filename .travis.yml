@@ -2,6 +2,8 @@ language: python
 python:
   - "3.6"
 
-install: "pip install -r server/requirements.txt"
+install: make install-deps
 
-script: python -m pytest server
+script: make test
+
+deploy: make deploy
