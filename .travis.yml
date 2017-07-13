@@ -4,4 +4,4 @@ python:
 
 install: "pip install -r server/requirements.txt"
 
-script: pytest server
+script: python -m pytest server
