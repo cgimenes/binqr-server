@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.6"
+
+notifications:
+  email:
+    - marcelo.gimenes.oliveira@gmail.com
+
+install: make install-deps
+
+script: make test
