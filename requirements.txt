@@ -3,3 +3,4 @@ flask
 pillow
 uwsgi
 imageio
+pytest
