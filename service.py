@@ -2,7 +2,7 @@ import binqr
 import imageio
 from tempfile import mkdtemp
 from uuid import uuid4
-from os import path, listdir
+from os import path, listdir, remove
 from shutil import rmtree
 from base64 import b64encode
 
@@ -19,7 +19,9 @@ def process(filename, file):
     images = []
     for file in listdir(temp_dir):
         images.append(imageio.imread(path.join(temp_dir, file)))
-    imageio.mimwrite(path.join(temp_dir, 'gif.gif'), images, fps=1)
+        # remove(path.join(temp_dir, file))
+
+    imageio.mimwrite(path.join(temp_dir, 'gif.gif'), images, fps=2)
 
     return temp_dir
 
