@@ -1,11 +1,17 @@
 language: python
 python:
-- '3.6'
+  - '3.6'
+
 notifications:
   email:
-  - marcelo.gimenes.oliveira@gmail.com
+    - marcelo.gimenes.oliveira@gmail.com
+  on_success: never
+  on_failure: always
+
 install: make install-deps
+
 script: make test
+
 deploy:
   provider: heroku
   api_key:
