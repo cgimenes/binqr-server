@@ -1,4 +1,5 @@
 import qrcode
+from multiprocessing.dummy import Pool as ThreadPool
 
 
 def convert(filename, file):
@@ -20,8 +21,8 @@ class BinQR:
     def convert(self, filename, file):
         parts = self.split_file(filename, file)
 
-        for part in parts:
-            yield self.make_qr(part)
+        pool = ThreadPool(8)
+        return pool.map(self.make_qr, parts)
 
     def split_file(self, filename, file):
         chunk_info = self.calc_chunk_info(file)
