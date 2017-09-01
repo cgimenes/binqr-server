@@ -3,12 +3,28 @@
 {% block content %}
 <h2>Deu bom! :D</h2>
 
-{% for image in images %}
-<img src="data:;base64,{{ image }}"/>
+{% for key in keys %}
+    {% if key != "gif.gif" %}
+        <div class="qrcode" style="display: none;">
+            <img src="data:;base64,{{ images[key] }}"/>
+            <span> {{key}} </span>
+        </div>
+    {% endif %}
+
+    {% if key == "gif.gif" %}
+        <div class="gif">
+            <img src="data:;base64,{{ images[key] }}"/>
+        </div>
+    {% endif %}
 {% endfor %}
+<p>
+    <a href="#" id="fallbackButton" onclick="gifFallback();">Modo manual</a>
+</p>
 
 <p>
     <a href="/">Voltar</a>
 </p>
+
+<script type="text/javascript" src="static/js/success.js"></script>
 
 {% endblock %}

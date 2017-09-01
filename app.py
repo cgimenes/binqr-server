@@ -21,7 +21,7 @@ def success():
 
     session.clear()
 
-    return render_template('success.html', images=encoded_images)
+    return render_template('success.html', keys=sorted(encoded_images), images=encoded_images)
 
 
 @app.route("/error", methods=['GET'])
