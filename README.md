@@ -6,3 +6,8 @@
 [![Issue Count](https://codeclimate.com/github/cgimenes/binqr-server/badges/issue_count.svg)](https://codeclimate.com/github/cgimenes/binqr-server)
 
 An website to convert files to QRCode and transfer to an smartphone through a Android application.
+
+## Donation
+If this project help you in any way, you can give us a cup of coffee :)
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=53B73CCD2WT8S&lc=US&item_name=BinQR&currency_code=BRL&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)
