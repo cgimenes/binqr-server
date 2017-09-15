@@ -6,6 +6,7 @@
 [![Issue Count](https://codeclimate.com/github/cgimenes/binqr-server/badges/issue_count.svg)](https://codeclimate.com/github/cgimenes/binqr-server)
 [![Assertible status](https://assertible.com/apis/53323aa1-7397-4fb0-8a22-1c3aa337d306/status?api_token=OKIw9OhvQAhFD0Y6)](https://assertible.com/dashboard#/services/53323aa1-7397-4fb0-8a22-1c3aa337d306/results)
 [![Requirements Status](https://requires.io/github/cgimenes/binqr-server/requirements.svg?branch=master)](https://requires.io/github/cgimenes/binqr-server/requirements/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/cgimenes/binqr-server/badge.svg?branch=master)](https://coveralls.io/github/cgimenes/binqr-server?branch=master)
 
 An website to convert files to QRCode and transfer to an smartphone through a Android application.
 
