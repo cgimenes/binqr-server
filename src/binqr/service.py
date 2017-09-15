@@ -1,9 +1,10 @@
-import binqr
-import imageio
-from tempfile import mkdtemp
 from os import path, listdir
 from shutil import rmtree
+from tempfile import mkdtemp
 from base64 import b64encode
+from src.binqr import binqr
+import imageio
+
 
 def process(filename, file):
     images = binqr.convert(filename, file)

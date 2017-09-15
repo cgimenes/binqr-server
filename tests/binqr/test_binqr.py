@@ -1,3 +1,6 @@
+import src.binqr.binqr
+
+
 def test_true():
     assert True
 

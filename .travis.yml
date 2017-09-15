@@ -10,7 +10,7 @@ notifications:
 
 install: make install-deps
 
-script: make test
+script: make coverage
 
 after_script:
   # start the web app
@@ -38,6 +38,9 @@ after_script:
     }'
 
   - kill $APP_PID
+
+  # upload coverage report to coveralls.io
+  - coveralls
 
 deploy:
   provider: heroku

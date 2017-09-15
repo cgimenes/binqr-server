@@ -1,6 +1,5 @@
-import service
+from src.binqr import service
 from flask import Flask, render_template, session, redirect, url_for, request, jsonify
-
 
 app = Flask(__name__)
 app.secret_key = 'anachnu tov'

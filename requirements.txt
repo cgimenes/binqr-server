@@ -4,3 +4,5 @@ pillow
 uwsgi
 imageio
 pytest
+pytest-cov
+coveralls
