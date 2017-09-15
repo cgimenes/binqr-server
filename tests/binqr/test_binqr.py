@@ -1,8 +1,5 @@
-import src.binqr.binqr
+from src.binqr import binqr
 
 
 def test_true():
-    assert True
-
-def test_true_two():
     assert True
