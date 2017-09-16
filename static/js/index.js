@@ -1,7 +1,8 @@
-window.onload = function(e){
-    var form = document.getElementById('file-form');
-    var fileSelect = document.getElementById('file-select');
-    var uploadButton = document.getElementById('upload-button');
+/** global: XMLHttpRequest */
+window.onload = function(){
+    var form = document.getElementById("file-form");
+    var fileSelect = document.getElementById("file-select");
+    var uploadButton = document.getElementById("upload-button");
 
     form.onsubmit = function(event) {
         event.preventDefault();
@@ -17,31 +18,32 @@ window.onload = function(e){
             var file = files[i];
 
             if (file.size >= 10 * 1024) {
-                alert('File too large');
+                alert("File too large");
                 return false;
             }
 
             // Add the file to the request.
-            formData.append('file', file, file.name);
+            formData.append("file", file, file.name);
         }
 
         // Set up the request.
         var xhr = new XMLHttpRequest();
         // Open the connection.
-        xhr.open('POST', 'process', true);
+        xhr.open("POST", "process", true);
         // Set up a handler for when the request finishes.
         xhr.onload = function () {
             if (this.status === 204) {
-                window.location.replace('success');
+                window.location.replace("success");
             } else {
                 alert(this.responseText);
             }
-            uploadButton.innerHTML = 'Upload';
+            uploadButton.innerHTML = "Upload";
         };
 
         // Update button text.
-        uploadButton.innerHTML = 'Uploading...';
+        uploadButton.innerHTML = "Uploading...";
         // Send the Data.
         xhr.send(formData);
-    }
-}
+        return true;
+    };
+};
