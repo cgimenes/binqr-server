@@ -3,6 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aeb9d7449dd4e0aaef0a00d6c314753)](https://www.codacy.com/app/cgimenes/binqr-server?utm_source=github.com&utm_medium=referral&utm_content=cgimenes/binqr-server&utm_campaign=badger)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cgimenes/binqr-server/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cgimenes/binqr-server/?branch=master)
 [![Code Climate](https://codeclimate.com/github/cgimenes/binqr-server/badges/gpa.svg)](https://codeclimate.com/github/cgimenes/binqr-server)
+[![Code Health](https://landscape.io/github/cgimenes/binqr-server/master/landscape.svg?style=flat)](https://landscape.io/github/cgimenes/binqr-server/master)
 [![Issue Count](https://codeclimate.com/github/cgimenes/binqr-server/badges/issue_count.svg)](https://codeclimate.com/github/cgimenes/binqr-server)
 [![Assertible status](https://assertible.com/apis/53323aa1-7397-4fb0-8a22-1c3aa337d306/status?api_token=OKIw9OhvQAhFD0Y6)](https://assertible.com/dashboard#/services/53323aa1-7397-4fb0-8a22-1c3aa337d306/results)
 [![Requirements Status](https://requires.io/github/cgimenes/binqr-server/requirements.svg?branch=master)](https://requires.io/github/cgimenes/binqr-server/requirements/?branch=master)
