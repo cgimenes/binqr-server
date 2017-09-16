@@ -33,13 +33,13 @@ def process():
     if 'file' not in request.files:
         return jsonify(error='No file part'), 400
 
-    file = request.files['file']
+    request_file = request.files['file']
 
-    if file.filename == '':
+    if request_file.filename == '':
         return jsonify(error='No selected file'), 400
 
-    bytes_read = file.read()
-    session['dir'] = service.process(file.filename, bytes_read)
+    bytes_read = request_file.read()
+    session['dir'] = service.process(request_file.filename, bytes_read)
 
     return '', 204
 

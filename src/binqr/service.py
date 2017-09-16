@@ -6,8 +6,8 @@ from src.binqr import binqr
 import imageio
 
 
-def process(filename, file):
-    images = binqr.convert(filename, file)
+def process(filename, file_bytes):
+    images = binqr.convert(filename, file_bytes)
 
     temp_dir = mkdtemp(prefix='binqr')
 
@@ -16,8 +16,8 @@ def process(filename, file):
 
     # Teste de GIF
     images = []
-    for file in listdir(temp_dir):
-        images.append(imageio.imread(path.join(temp_dir, file)))
+    for file_name in listdir(temp_dir):
+        images.append(imageio.imread(path.join(temp_dir, file_name)))
 
     imageio.mimwrite(path.join(temp_dir, 'gif.gif'), images, fps=2)
 

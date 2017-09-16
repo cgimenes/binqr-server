@@ -18,15 +18,15 @@ class BinQR:
     MAX_QR_CODE_SIZE = 2000
     MAX_FILE_NAME_LENGTH = 255
 
-    def convert(self, filename, file):
-        parts = self.split_file(filename, file)
+    def convert(self, filename, file_bytes):
+        parts = self.split_file(filename, file_bytes)
 
         pool = ThreadPool(8)
         return pool.map(self.make_qr, parts)
 
-    def split_file(self, filename, file):
-        chunk_info = self.calc_chunk_info(file)
-        chunks = self.chunks(file, chunk_info['size'])
+    def split_file(self, filename, file_bytes):
+        chunk_info = self.calc_chunk_info(file_bytes)
+        chunks = self.chunks(file_bytes, chunk_info['size'])
         chunks_quantity = chr(chunk_info['quantity']).encode('latin_1')
         filename_length = len(filename)
         hex_filename_length = chr(filename_length).encode('latin_1')
@@ -41,8 +41,8 @@ class BinQR:
             yield chunk_with_metadata
             i += 1
 
-    def calc_chunk_info(self, file):
-        file_length = len(file)
+    def calc_chunk_info(self, file_bytes):
+        file_length = len(file_bytes)
         divisor = 1
         chunk_size = file_length
         while True:
@@ -71,6 +71,6 @@ class BinQR:
         return qr.make_image()
 
     @staticmethod
-    def chunks(file, chunk_size):
-        for i in range(0, len(file), chunk_size):
-            yield file[i:i + chunk_size]
+    def chunks(array, chunk_size):
+        for i in range(0, len(array), chunk_size):
+            yield array[i:i + chunk_size]
