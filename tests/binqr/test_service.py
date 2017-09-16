@@ -13,7 +13,7 @@ def test_process_9kb_file():
 
     tempdir = service.process(filename, byte_array)
 
-    assert len(os.listdir(tempdir)) >= 2
+    assert len(os.listdir(tempdir)) == 6
 
     shutil.rmtree(tempdir)
 
@@ -28,6 +28,6 @@ def test_getimages_9kb_file():
 
     images = service.get_images(tempdir)
 
-    assert len(images) >= 2
+    assert len(images) == 6
 
     assert not os.path.exists(tempdir)
