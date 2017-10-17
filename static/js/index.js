@@ -3,6 +3,15 @@ window.onload = function(){
     var form = document.getElementById("file-form");
     var fileSelect = document.getElementById("file-select");
     var uploadButton = document.getElementById("upload-button");
+    var fileName = document.getElementById("file-name");
+
+    fileSelect.onchange = function() {
+        if(fileSelect.files.length > 0)
+        {
+            fileName.innerHTML = fileSelect.files[0].name;
+        }
+    };
+
 
     form.onsubmit = function(event) {
         event.preventDefault();
@@ -41,7 +50,7 @@ window.onload = function(){
         };
 
         // Update button text.
-        uploadButton.innerHTML = "Uploading...";
+        uploadButton.classList.add('is-loading')
         // Send the Data.
         xhr.send(formData);
         return true;

@@ -1,29 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Deu bom! :D</h2>
-
 {% for key in keys %}
-    {% if key != "gif.gif" %}
-        <div class="qrcode" style="display: none;">
-            <img src="data:;base64,{{ images[key] }}"/>
-            <span> {{key}} </span>
-        </div>
-    {% endif %}
+{% if key != "gif.gif" %}
+<div class="qrcode" style="display: none;">
+    <img src="data:;base64,{{ images[key] }}"/>
+    <span> {{key}} </span>
+</div>
+{% endif %}
 
-    {% if key == "gif.gif" %}
-        <div class="gif">
-            <img src="data:;base64,{{ images[key] }}"/>
-        </div>
-    {% endif %}
+{% if key == "gif.gif" %}
+<div class="gif">
+    <img src="data:;base64,{{ images[key] }}"/>
+</div>
+{% endif %}
 {% endfor %}
-<p>
-    <a href="#" id="fallbackButton" onclick="gifFallback();">Modo manual</a>
+
+<p class="field">
+    <a href="#" id="fallbackButton" class="button is-success" onclick="gifFallback();">
+    <span class="icon is-small">
+        <i class="fa fa-hand-o-up"></i>
+    </span>
+        <span>Modo manual</span>
+    </a>
 </p>
 
-<p>
-    <a href="/">Voltar</a>
+<p class="field">
+    <a href="/" class="button is-success">
+    <span class="icon is-small">
+        <i class="fa fa-arrow-left"></i>
+    </span>
+        <span>Voltar</span>
+    </a>
 </p>
+
 
 <script type="text/javascript" src="static/js/success.js"></script>
 

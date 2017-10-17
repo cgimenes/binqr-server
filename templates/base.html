@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Xablau</title>
-    <link rel="stylesheet" href="static/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BinQR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 </head>
-<body>
-    <h1>Xablauzão!</h1>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <a href="https://www.youtube.com/watch?v=48ZxIUOM1LM">Sonzinho dahora</a>
+<body class="layout-default">
+    <div class="container">
+        <h1 class="title">
+            Hello World
+        </h1>
+        <div>{% block content %}{% endblock %}</div>
+    </div>
 </body>
 </html>

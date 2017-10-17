@@ -1,15 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Essa é uma página de teste para os psicólogos de inteligência artificial, porque os computadores estavam muito depressivos</h2>
-
-
-<p>Use esse campo maroto logo abaixo pra upar seu arquivo</p>
-<p>Não esquece de clicar no botão Upload ali também, senão vai acontecer VÁRIOS NADA</p>
-<p class="vermelho">Mas atenção! Se passar de 10kb o toninho da padaria vai fazer você comer lanches até ficar satisfeito</p>
+<p class="subtitle">
+    My first website with <strong>Bulma</strong>!
+</p>
 <form id="file-form">
-    <input type="file" id="file-select" name="photos[]" multiple/>
-    <button type="submit" id="upload-button">Upload</button>
+    <div class="field">
+        <div class="file is-medium is-boxed has-name">
+            <label class="file-label">
+                <input class="file-input" id="file-select" type="file" name="files[]" multiple>
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Medium file…
+                    </span>
+                </span>
+                <span class="file-name is-invisible" id="file-name">
+                </span>
+            </label>
+        </div>
+    </div>
+    <p class="field">
+        <button href="/" class="button is-primary" id="upload-button">
+        <span class="icon is-small">
+            <i class="fa fa-upload"></i>
+        </span>
+            <span>Upload</span>
+        </button>
+    </p>
 </form>
 
 
