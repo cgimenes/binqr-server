@@ -8,6 +8,7 @@ app.config['MAX_CONTENT_LENGTH'] = 10 * 1024
 
 @app.route("/", methods=['GET'])
 def index():
+    session.clear()
     return render_template('index.html')
 
 

@@ -6,13 +6,91 @@
     <title>BinQR</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="layout-default">
-    <div class="container">
-        <h1 class="title">
-            Hello World
-        </h1>
-        <div>{% block content %}{% endblock %}</div>
-    </div>
+    <section class="hero is-dark is-fullheight is-bold">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                            <span class="is-size-4 is-bold has-text-weight-bold">BinQR</span>
+                            <img src="/static/img/white-logo.svg" width="30">
+                        </a>
+                    </div>
+                    <div class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-hidden-desktop-only" href="https://github.com/cgimenes/binqr-server" target="_blank">
+                                <span class="icon">
+                                    <i class="fa fa-lg fa-github"></i>
+                                </span>
+                            </a>
+                            <span class="navbar-item">
+                                <a class="button" href="https://play.google.com/apps">
+                                    <span class="icon">
+                                        <i class="fa fa-android"></i>
+                                    </span>
+                                    <span>Download</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div id="title" class="container has-text-centered">
+                {% block title %}{% endblock %}
+            </div>
+            <div class="box container has-text-centered">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="content">
+                        <strong>BinQR</strong> por Fernando Seki, Lucas Stranieri and Marcelo Gimenes.
+                    </div>
+                </div>
+                <div class="column is-5 is-offset-4">
+                    <div class="content">
+                        <div>
+                            <strong>Doe</strong> e compartilhe!
+                        </div>
+                        <div >
+                            <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=cgimenes&amp;repo=binqr-server&amp;type=star&amp;count=true&amp;size=large" allowtransparency="true" scrolling="0" width="160px" height="30px" frameborder="0"></iframe>
+                            <p>
+                                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=53B73CCD2WT8S&lc=US&item_name=BinQR&currency_code=BRL&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted">
+                                    <img src="/static/img/paypal-donate.png" width="160">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-3">
+                    <p>
+                        <a href="https://bulma.io">
+                            <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+                        </a>
+                        <small>
+                            <br>
+                            Código fonte licenciado <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                            <br>
+                            Website licenciado <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

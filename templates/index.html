@@ -1,39 +1,43 @@
 {% extends "base.html" %}
 
+{% block title %}
+<h1 class="title">
+    Bem-vindo ao BinQR!
+</h1>
+<h2 class="subtitle">
+    Para começar, selecione um arquivo usando o botão ao lado e clique em Processar.
+</h2>
+{% endblock %}
+
 {% block content %}
-<p class="subtitle">
-    My first website with <strong>Bulma</strong>!
-</p>
 <form id="file-form">
     <div class="field">
-        <div class="file is-medium is-boxed has-name">
+        <div class="file is-centered is-medium is-boxed has-name">
             <label class="file-label">
                 <input class="file-input" id="file-select" type="file" name="files[]" multiple>
                 <span class="file-cta">
                     <span class="file-icon">
-                        <i class="fa fa-upload"></i>
+                        <i class="fa fa-file"></i>
                     </span>
                     <span class="file-label">
-                        Medium file…
+                        Escolha um arquivo…
                     </span>
                 </span>
-                <span class="file-name is-invisible" id="file-name">
-                </span>
+                <span class="file-name is-hidden" id="file-name"></span>
             </label>
         </div>
     </div>
-    <p class="field">
-        <button href="/" class="button is-primary" id="upload-button">
-        <span class="icon is-small">
-            <i class="fa fa-upload"></i>
-        </span>
-            <span>Upload</span>
+    <div class="field">
+        <button href="/" class="button is-dark" id="upload-button">
+            <span class="icon is-small">
+                <i class="fa fa-cog"></i>
+            </span>
+            <span>Processar</span>
         </button>
-    </p>
+    </div>
 </form>
-
-
-<script type="text/javascript" src="static/js/index.js"></script>
-
 {% endblock %}
 
+{% block scripts %}
+<script type="text/javascript" src="static/js/index.js"></script>
+{% endblock %}

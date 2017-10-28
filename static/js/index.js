@@ -8,6 +8,7 @@ window.onload = function(){
     fileSelect.onchange = function() {
         if(fileSelect.files.length > 0)
         {
+            fileName.classList.remove('is-hidden');
             fileName.innerHTML = fileSelect.files[0].name;
         }
     };
