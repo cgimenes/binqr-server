@@ -12,7 +12,7 @@
 {% block content %}
 <form id="file-form">
     <div class="field">
-        <div class="file is-centered is-medium is-boxed has-name">
+        <div id="file" class="file is-centered is-medium is-boxed has-name">
             <label class="file-label">
                 <input class="file-input" id="file-select" type="file" name="files[]" multiple>
                 <span class="file-cta">
@@ -26,6 +26,7 @@
                 <span class="file-name is-hidden" id="file-name"></span>
             </label>
         </div>
+        <p id="file-help" class="help">Tamanho máximo: 10kb</p>
     </div>
     <div class="field">
         <button href="/" class="button is-dark" id="upload-button">

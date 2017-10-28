@@ -1,7 +1,17 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 
-{% block content %}
-<h2>Deu muito ruim! ;(</h2>
+{% block hero %}
+<div class="container">
+    <h1 class="title">Erro!</h1>
+    <h2 class="subtitle">Ocorreu um erro inesperado</h2>
 
-
+    <p class="control">
+        <a href="/" class="button">
+        <span class="icon is-small">
+            <i class="fa fa-arrow-left"></i>
+        </span>
+            <span>Processar outro arquivo</span>
+        </a>
+    </p>
+</div>
 {% endblock %}

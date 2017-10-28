@@ -4,12 +4,17 @@ window.onload = function(){
     var fileSelect = document.getElementById("file-select");
     var uploadButton = document.getElementById("upload-button");
     var fileName = document.getElementById("file-name");
+    var fileHelp = document.getElementById("file-help");
+    var fileField = document.getElementById("file");
 
     fileSelect.onchange = function() {
         if(fileSelect.files.length > 0)
         {
             fileName.classList.remove('is-hidden');
             fileName.innerHTML = fileSelect.files[0].name;
+            fileHelp.classList.remove('is-danger');
+            fileHelp.innerHTML = 'Tamanho máximo: 10kb';
+            fileField.classList.remove('is-danger');
         }
     };
 
@@ -28,7 +33,9 @@ window.onload = function(){
             var file = files[i];
 
             if (file.size >= 10 * 1024) {
-                alert("File too large");
+                fileHelp.classList.add('is-danger');
+                fileField.classList.add('is-danger');
+                fileHelp.innerHTML = 'Arquivo muito grande!';
                 return false;
             }
 
@@ -45,7 +52,7 @@ window.onload = function(){
             if (this.status === 204) {
                 window.location.replace("success");
             } else {
-                alert(this.responseText);
+                window.location.replace("error");
             }
             uploadButton.innerHTML = "Upload";
         };

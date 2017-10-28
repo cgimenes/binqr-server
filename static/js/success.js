@@ -3,11 +3,9 @@ var fallbackEnabled = false;
 function gifFallback() {
     var qrcodes = document.getElementById("qrcodes");
     var gif = document.getElementById("gif");
-    var buttonText = document.getElementById("fallbackButtonText");
+    var buttonText = document.getElementById("fallback-button-text");
     var title = document.getElementById("title");
-    var buttonIcon = document.getElementById("fallbackButtonIcon");
-
-
+    var buttonIcon = document.getElementById("fallback-button-icon");
 
     fallbackEnabled = !fallbackEnabled;
     if (fallbackEnabled) {
