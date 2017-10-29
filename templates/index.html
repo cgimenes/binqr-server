@@ -1,42 +1,45 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 
-{% block title %}
-<h1 class="title">
-    Bem-vindo ao BinQR!
-</h1>
-<h2 class="subtitle">
-    Para começar, selecione um arquivo usando o botão abaixo e clique em Processar.
-</h2>
-{% endblock %}
-
-{% block content %}
-<form id="file-form">
-    <div class="field">
-        <div id="file" class="file is-centered is-medium is-boxed has-name">
-            <label class="file-label">
-                <input class="file-input" id="file-select" type="file" name="files[]" multiple>
-                <span class="file-cta">
-                    <span class="file-icon">
-                        <i class="fa fa-file"></i>
+{% block hero %}
+<div class="container has-text-centered">
+    <section class="section">
+        <h1 class="title">
+            Bem-vindo ao BinQR!
+        </h1>
+        <h2 class="subtitle">
+            Para começar, selecione um arquivo usando o botão abaixo e clique em Processar.
+        </h2>
+    </section>
+    <section class="section">
+        <form id="file-form">
+            <div class="field">
+                <div id="file" class="file is-centered is-medium is-boxed has-name">
+                    <label class="file-label">
+                        <input class="file-input" id="file-select" type="file" name="files[]" multiple>
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fa fa-file"></i>
+                            </span>
+                            <span class="file-label">
+                                Escolha um arquivo…
+                            </span>
+                        </span>
+                        <span class="file-name is-hidden" id="file-name"></span>
+                    </label>
+                </div>
+                <p id="file-help" class="help">Tamanho máximo: 10kb</p>
+            </div>
+            <div class="field">
+                <button href="/" class="button" id="upload-button">
+                    <span class="icon is-small">
+                        <i class="fa fa-cog"></i>
                     </span>
-                    <span class="file-label">
-                        Escolha um arquivo…
-                    </span>
-                </span>
-                <span class="file-name is-hidden" id="file-name"></span>
-            </label>
-        </div>
-        <p id="file-help" class="help">Tamanho máximo: 10kb</p>
-    </div>
-    <div class="field">
-        <button href="/" class="button" id="upload-button">
-            <span class="icon is-small">
-                <i class="fa fa-cog"></i>
-            </span>
-            <span>Processar</span>
-        </button>
-    </div>
-</form>
+                    <span>Processar</span>
+                </button>
+            </div>
+        </form>
+    </section>
+</div>
 {% endblock %}
 
 {% block scripts %}

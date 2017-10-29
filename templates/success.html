@@ -1,55 +1,57 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 
-{% block title %}
-<h1 class="title">
-    Pronto!
-</h1>
-<h2 class="subtitle">
-    Agora é só ler o(os) QRCode(s) abaixo usando o aplicativo do BinQR!
-</h2>
-<span class="is-size-7 has-text-grey-light">
-    Caso tenha algum problema durante a leitura, clique no botão "Modo manual" para separar em várias imagens.
-</span>
+{% block hero %}
+<div class="container has-text-centered">
+    <h1 class="title">
+        Pronto!
+    </h1>
+    <h2 class="subtitle">
+        Agora é só fazer a leitura usando o aplicativo do BinQR!
+    </h2>
+    <span class="is-size-7 has-text-grey-light">
+        Caso tenha algum problema durante a leitura, clique no botão "Modo manual" para separar em várias imagens.
+    </span>
 
-<div class="field is-grouped is-grouped-centered">
-    <p class="control">
-        <a href="#" class="button is-warning" onclick="gifFallback();">
+    <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+            <a href="#" class="button is-warning" onclick="gifFallback();">
+                <span class="icon is-small">
+                    <i id="fallback-button-icon" class="fa fa-thumbs-down"></i>
+                </span>
+                <span id="fallback-button-text">Modo manual</span>
+            </a>
+        </p>
+
+        <p class="control">
+            <a href="/" class="button">
             <span class="icon is-small">
-                <i id="fallback-button-icon" class="fa fa-thumbs-down"></i>
+                <i class="fa fa-arrow-left"></i>
             </span>
-            <span id="fallback-button-text">Modo manual</span>
-        </a>
-    </p>
-
-    <p class="control">
-        <a href="/" class="button">
-        <span class="icon is-small">
-            <i class="fa fa-arrow-left"></i>
-        </span>
-            <span>Processar outro arquivo</span>
-        </a>
-    </p>
-</div>
-{% endblock %}
-
-{% block content %}
-<div id="qrcodes" class="field is-grouped is-grouped-multiline is-hidden is-grouped-centered">
-    {% for key in keys %}
-    {% if key != "gif.gif" %}
-    <div class="control">
-        <img src="data:;base64,{{ images[key] }}"/>
-        <p class="has-text-weight-semibold has-text-centered"> {{key}} </p>
+                <span>Processar outro arquivo</span>
+            </a>
+        </p>
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
 
-<div id="gif">
-    {% for key in keys %}
-    {% if key == "gif.gif" %}
-    <img src="data:;base64,{{ images[key] }}"/>
-    {% endif %}
-    {% endfor %}
+<div class="container has-text-centered">
+    <div id="qrcodes" class="field is-grouped is-grouped-multiline is-hidden is-grouped-centered">
+        {% for key in keys %}
+        {% if key != "gif.gif" %}
+        <div class="control">
+            <img src="data:;base64,{{ images[key] }}"/>
+            <p class="has-text-weight-semibold has-text-centered"> {{key}} </p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div id="gif">
+        {% for key in keys %}
+        {% if key == "gif.gif" %}
+        <img src="data:;base64,{{ images[key] }}"/>
+        {% endif %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
 
