@@ -29,6 +29,11 @@ def error():
     return render_template('error.html')
 
 
+@app.route("/about", methods=['GET'])
+def about():
+    return render_template('error.html')
+
+
 @app.route("/process", methods=['POST'])
 def process():
     if 'file' not in request.files:

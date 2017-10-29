@@ -1,11 +1,12 @@
 {% extends "default.html" %}
 
 {% block hero %}
-    <div id="title" class="container has-text-centered">
+<div class="container has-text-centered">
+    <section class="section">
         {% block title %}{% endblock %}
-    </div>
-    <div class="box container has-text-centered">
+    </section>
+    <section class="section">
         {% block content %}{% endblock %}
-    </div>
+    </section>
+</div>
 {% endblock %}
-

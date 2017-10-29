@@ -5,11 +5,31 @@
     Pronto!
 </h1>
 <h2 class="subtitle">
-    Agora é só ler o(os) QRCode(s) ao lado usando o aplicativo do BinQR!
+    Agora é só ler o(os) QRCode(s) abaixo usando o aplicativo do BinQR!
 </h2>
 <span class="is-size-7 has-text-grey-light">
     Caso tenha algum problema durante a leitura, clique no botão "Modo manual" para separar em várias imagens.
 </span>
+
+<div class="field is-grouped is-grouped-centered">
+    <p class="control">
+        <a href="#" class="button is-warning" onclick="gifFallback();">
+            <span class="icon is-small">
+                <i id="fallback-button-icon" class="fa fa-thumbs-down"></i>
+            </span>
+            <span id="fallback-button-text">Modo manual</span>
+        </a>
+    </p>
+
+    <p class="control">
+        <a href="/" class="button">
+        <span class="icon is-small">
+            <i class="fa fa-arrow-left"></i>
+        </span>
+            <span>Processar outro arquivo</span>
+        </a>
+    </p>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -30,26 +50,6 @@
     <img src="data:;base64,{{ images[key] }}"/>
     {% endif %}
     {% endfor %}
-</div>
-
-<div class="field is-grouped is-grouped-centered">
-    <p class="control">
-        <a href="#" class="button is-warning" onclick="gifFallback();">
-            <span class="icon is-small">
-                <i id="fallback-button-icon" class="fa fa-thumbs-down"></i>
-            </span>
-            <span id="fallback-button-text">Modo manual</span>
-        </a>
-    </p>
-
-    <p class="control">
-        <a href="/" class="button is-dark">
-        <span class="icon is-small">
-            <i class="fa fa-arrow-left"></i>
-        </span>
-            <span>Processar outro arquivo</span>
-        </a>
-    </p>
 </div>
 {% endblock %}
 
