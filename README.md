@@ -11,6 +11,12 @@
 
 An website to convert files to QRCode and transfer to an smartphone through a Android application.
 
+## Ideas
+
+* [ ] JAB code
+* [ ] Producthunt/Hackernews
+* [ ] Flutter
+
 ## Donation
 If this project help you in any way, you can give us a cup of coffee :)
 
